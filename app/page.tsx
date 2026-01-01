@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Sparkles, Facebook, Instagram, Linkedin, Twitter, Image as ImageIcon, Loader2, Wand2 } from 'lucide-react';
+import { Sparkles, Facebook, Instagram, Linkedin, Twitter, Image as ImageIcon, Loader2 } from 'lucide-react';
 import PlatformPreview from '@/components/PlatformPreview';
-import Link from 'next/link';
 
 type Platform = 'facebook' | 'instagram' | 'linkedin' | 'twitter';
 
@@ -104,16 +103,9 @@ export default function Home() {
               AI Social Content Generator
             </h1>
           </div>
-          <p className="text-gray-600 text-lg mb-4">
+          <p className="text-gray-600 text-lg">
             Create viral, platform-optimized social media content powered by AI
           </p>
-          <Link
-            href="/prompt-generator"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg"
-          >
-            <Wand2 className="w-5 h-5" />
-            Try Smart Prompt Generator
-          </Link>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
