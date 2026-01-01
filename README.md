@@ -1,10 +1,14 @@
-# AI Social Content Generator
+# AI Social Content Generator + Smart Prompt Generator
 
-A powerful AI-powered social media content generator that creates platform-optimized, viral-worthy content for Facebook, Instagram, LinkedIn, and Twitter using Claude AI.
+A powerful AI-powered application featuring:
+1. **Social Media Content Generator** - Creates platform-optimized content for Facebook, Instagram, LinkedIn, and Twitter
+2. **Smart Prompt Generator** - Advanced prompt engineering tool for any LLM with 10 specialized categories
 
 ![AI Social Content Generator](https://img.shields.io/badge/AI-Powered-purple) ![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-cyan)
 
 ## Features
+
+### Social Media Content Generator
 
 - **Multi-Platform Support**: Generate content for Facebook, Instagram, LinkedIn, and Twitter simultaneously
 - **AI-Powered**: Uses Claude AI (Anthropic) to create engaging, platform-specific content
@@ -18,6 +22,18 @@ A powerful AI-powered social media content generator that creates platform-optim
 - **Image Prompts**: Provides AI image generation prompts for visual content
 - **Copy to Clipboard**: One-click copying of generated content
 - **Responsive Design**: Works perfectly on desktop and mobile devices
+
+### Smart Prompt Generator ✨ NEW!
+
+- **10 Specialized Categories**: Coding, Learning, Studying, Content Writing, Data Analysis, Creative Writing, Business, Technical Docs, Problem Solving, Brainstorming
+- **Multi-LLM Support**: Works with Anthropic Claude, OpenAI GPT, Google Gemini, Cohere, and custom LLMs
+- **Dynamic Forms**: Category-specific fields optimized for best results
+- **Save & Organize**: Save prompts with outputs, search, and organize by category
+- **Export/Import**: Backup and restore your prompt library
+- **Best Practices Built-in**: Each category follows prompt engineering best practices
+- **Token Tracking**: Monitor API usage across different LLMs
+
+[**📖 View Smart Prompt Generator Documentation**](./SMART_PROMPT_GENERATOR.md)
 
 ## Tech Stack
 
@@ -63,6 +79,10 @@ A powerful AI-powered social media content generator that creates platform-optim
 
 ## Usage
 
+### Social Media Content Generator
+
+Navigate to the home page (`/`):
+
 1. **Select Platforms**: Choose one or more social media platforms (Facebook, Instagram, LinkedIn, Twitter)
 
 2. **Fill in the Smart Form**:
@@ -77,6 +97,28 @@ A powerful AI-powered social media content generator that creates platform-optim
 3. **Generate Content**: Click the "Generate Content" button
 
 4. **Review & Copy**: Review the generated content for each platform and copy it to your clipboard
+
+### Smart Prompt Generator
+
+Navigate to `/prompt-generator`:
+
+1. **Configure LLMs** (first time only):
+   - Go to Settings
+   - Add API keys for your preferred LLMs (Anthropic, OpenAI, Google, etc.)
+   - Enable the configurations
+
+2. **Generate Prompts**:
+   - Select a category from the sidebar
+   - Fill in category-specific fields
+   - Click "Generate Prompt"
+   - Select your LLM and click "Run with LLM"
+
+3. **Save & Organize**:
+   - Click Save to store prompts with outputs
+   - Access saved prompts from History
+   - Export/import your prompt library
+
+See the [Smart Prompt Generator Documentation](./SMART_PROMPT_GENERATOR.md) for detailed usage.
 
 ## Platform-Specific Features
 
@@ -113,14 +155,26 @@ A powerful AI-powered social media content generator that creates platform-optim
 testapp/
 ├── app/
 │   ├── api/
-│   │   └── generate/
-│   │       └── route.ts          # API endpoint for content generation
+│   │   ├── generate/
+│   │   │   └── route.ts          # Social media content API
+│   │   └── prompt-generate/
+│   │       └── route.ts          # Smart prompt generator API
+│   ├── prompt-generator/
+│   │   └── page.tsx              # Smart prompt generator page
+│   ├── settings/
+│   │   └── page.tsx              # LLM configuration page
 │   ├── layout.tsx                # Root layout
-│   └── page.tsx                  # Main application page
+│   └── page.tsx                  # Social media generator (home)
 ├── components/
 │   └── PlatformPreview.tsx       # Platform-specific preview component
+├── lib/
+│   ├── types.ts                  # TypeScript interfaces
+│   ├── promptCategories.ts       # Prompt category configurations
+│   ├── promptBuilder.ts          # Prompt building logic
+│   └── storage.ts                # localStorage utilities
 ├── public/                       # Static assets
 ├── .env.local.example            # Environment variables template
+├── SMART_PROMPT_GENERATOR.md     # Smart Prompt Generator docs
 ├── package.json                  # Dependencies
 ├── tailwind.config.ts            # Tailwind configuration
 └── tsconfig.json                 # TypeScript configuration
@@ -165,7 +219,9 @@ Generates platform-specific content using Claude AI.
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `ANTHROPIC_API_KEY` | Your Anthropic API key for Claude AI | Yes |
+| `ANTHROPIC_API_KEY` | Your Anthropic API key for Claude AI (Social Media Generator) | Yes |
+
+**Note**: For the Smart Prompt Generator, API keys are configured in the Settings page and stored in browser localStorage (not environment variables).
 
 ## Development
 
